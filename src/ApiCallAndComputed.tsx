@@ -1,15 +1,16 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useState } from "react";
-import { CountryStoreContext } from "./store/countryStore/CountryStore";
+import { RootStoreContext } from "./store/RootStore";
 
 const ApiCallAndComputed = () => {
+  const rootStore = useContext(RootStoreContext);
   const {
     countryData,
     getCountryData,
     isCountryLoaded,
     clearCountryData,
     isEuropeanCountry,
-  } = useContext(CountryStoreContext);
+  } = rootStore.countryStore;
   const [value, setValue] = useState("");
 
   const handleChange = (e: any) => {

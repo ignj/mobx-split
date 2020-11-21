@@ -1,5 +1,4 @@
 import { action, makeAutoObservable } from "mobx";
-import { createContext } from "react";
 import { incrementNumberOfLogsAction } from "./actions/incrementNumberOfLogsAction";
 import { updateLogDataAction } from "./actions/updateLogDataAction";
 
@@ -15,5 +14,3 @@ export class LogsStore {
     makeAutoObservable(this);
   }
 }
-
-export const LogsStoreContext = createContext(new LogsStore());

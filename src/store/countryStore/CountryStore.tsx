@@ -1,5 +1,4 @@
 import { action, computed, makeAutoObservable } from "mobx";
-import { createContext } from "react";
 import { clearCountryDataAction } from "./actions/clearCountryDataAction";
 import { getCountryDataAction } from "./actions/getCountryDataAction";
 import { isCountryLoadedComputed } from "./computed/isCountryLoadedComputed";
@@ -21,5 +20,3 @@ export class CountryStore {
     makeAutoObservable(this);
   }
 }
-
-export const CountryStoreContext = createContext(new CountryStore());
