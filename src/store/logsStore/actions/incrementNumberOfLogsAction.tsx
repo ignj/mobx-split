@@ -1,5 +1,5 @@
-import { Store } from "../LogsStore";
+import { LogsStore } from "../LogsStore";
 
-export function incrementNumberOfLogsAction(parentStore: Store) {
+export function incrementNumberOfLogsAction(parentStore: LogsStore) {
     parentStore.numberOfLogs += 1;
 }

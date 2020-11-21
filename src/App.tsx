@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { LogsStore } from "./store/logsStore/LogsStore";
+import { LogsStoreContext } from "./store/logsStore/LogsStore";
 import NumberOfLogs from "./NumberOfLogs";
 import NumberOfLogsAndData from "./NumberOfLogsAndData";
 import ApiCallAndComputed from "./ApiCallAndComputed";
 
 const App = () => {
-  const { incrementNumberOfLogs, updateLogData } = useContext(LogsStore);
+  const { incrementNumberOfLogs, updateLogData } = useContext(LogsStoreContext);
 
   return (
     <>

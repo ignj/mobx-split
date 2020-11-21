@@ -3,7 +3,7 @@ import { createContext } from "react";
 import { incrementNumberOfLogsAction } from "./actions/incrementNumberOfLogsAction";
 import { updateLogDataAction } from "./actions/updateLogDataAction";
 
-export class Store {
+export class LogsStore {
   numberOfLogs: number = 0;
   logData: string = "";
   countryData: any = null;
@@ -16,4 +16,4 @@ export class Store {
   }
 }
 
-export const LogsStore = createContext(new Store());
+export const LogsStoreContext = createContext(new LogsStore());

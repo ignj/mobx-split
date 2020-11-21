@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useRef } from "react";
-import { LogsStore } from "./store/logsStore/LogsStore";
+import { LogsStoreContext } from "./store/logsStore/LogsStore";
 
 const NumberOfLogs = () => {
-  const { numberOfLogs } = useContext(LogsStore);
+  const { numberOfLogs } = useContext(LogsStoreContext);
   const logsRenders = useRef(0);
 
   return (

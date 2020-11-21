@@ -22,4 +22,4 @@ export class CountryStore {
   }
 }
 
-export const CountryStoreSingleton = createContext(new CountryStore());
+export const CountryStoreContext = createContext(new CountryStore());
