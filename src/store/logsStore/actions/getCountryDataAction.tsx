@@ -1,5 +1,5 @@
 import { runInAction } from "mobx";
-import { Store } from "./LogsStore";
+import { Store } from "../LogsStore";
 
 export const getCountryDataAction = async (
   parentStore: Store,

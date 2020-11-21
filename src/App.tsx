@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { LogsStore } from "./store/LogsStore";
+import { LogsStore } from "./store/logsStore/LogsStore";
 import NumberOfLogs from "./NumberOfLogs";
 import NumberOfLogsAndData from "./NumberOfLogsAndData";
 import ApiCallAndComputed from "./ApiCallAndComputed";
