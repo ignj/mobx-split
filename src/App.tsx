@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { LogsStore } from "./store/LogsStore";
 import NumberOfLogs from "./NumberOfLogs";
 import NumberOfLogsAndData from "./NumberOfLogsAndData";
+import ApiCallAndComputed from "./ApiCallAndComputed";
 
 const App = () => {
   const { incrementNumberOfLogs, updateLogData } = useContext(LogsStore);
@@ -19,6 +20,7 @@ const App = () => {
       </button>
       <NumberOfLogs />
       <NumberOfLogsAndData />
+      <ApiCallAndComputed />
     </>
   );
 };
