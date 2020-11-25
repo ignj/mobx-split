@@ -5,14 +5,12 @@ import { runInAction } from "mobx";
 import React from "react";
 import { useContext } from "react";
 import ApiCallAndComputed from "../ApiCallAndComputed";
-import * as apiCalls from "../store/countryStore/actions/getCountryDataAction";
 import { RootStoreContext } from "../store/RootStore";
 
 const europeanCountryMock = '{"name": "Belarus","region": "Europe"}';
 const nonEuropeanCountryMock = '{"name": "Argentina","region": "Americas"}';
 
 test("no country label is shown when no data is loaded ", () => {
-  const { result: context } = renderHook(() => useContext(RootStoreContext));
   render(<ApiCallAndComputed />);
 
   const countryDataLabel = screen.getByTestId("country-data");
