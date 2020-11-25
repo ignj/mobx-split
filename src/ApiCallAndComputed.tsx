@@ -34,7 +34,7 @@ const ApiCallAndComputed = () => {
         <form>
           <label>
             Name:
-            <input type="text" value={value} onChange={handleChange} />
+            <input type="text" value={value} onChange={handleChange} data-testid="country-input"/>
           </label>
           <input
             disabled={!value}
@@ -43,6 +43,7 @@ const ApiCallAndComputed = () => {
             onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
               handleSubmit(e, value)
             }
+            data-testid="search-country-button"
           />
           <input
             type="submit"
@@ -50,6 +51,7 @@ const ApiCallAndComputed = () => {
             onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) =>
               clearData(e)
             }
+            data-testid="clear-data-button"
           />
         </form>
       </div>
@@ -60,14 +62,18 @@ const ApiCallAndComputed = () => {
       )}
       {isCountryLoaded() ? (
         <>
-          <div>There is some country data</div>
+          <div data-testid="country-data">There is some country data</div>
           <div>
             Is European country?
-            {isEuropeanCountry() ? <div>Yes it is</div> : <div>Bad luck</div>}
+            {isEuropeanCountry() ? (
+              <div data-testid="european-label">Yes it is</div>
+            ) : (
+              <div data-testid="european-label">Bad luck</div>
+            )}
           </div>
         </>
       ) : (
-        <div>No country data</div>
+        <div data-testid="country-data">No country data</div>
       )}
     </div>
   );
