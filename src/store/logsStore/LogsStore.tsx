@@ -1,4 +1,4 @@
-import { action, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { incrementNumberOfLogsAction } from "./actions/incrementNumberOfLogsAction";
 import { updateLogDataAction } from "./actions/updateLogDataAction";
 
@@ -7,8 +7,8 @@ export class LogsStore {
   logData: string = "";
   countryData: any = null;
 
-  incrementNumberOfLogs = action(() => incrementNumberOfLogsAction(this));
-  updateLogData = action(() => updateLogDataAction(this));
+  incrementNumberOfLogs = () => incrementNumberOfLogsAction(this);
+  updateLogData = () => updateLogDataAction(this);
 
   constructor() {
     makeAutoObservable(this);
