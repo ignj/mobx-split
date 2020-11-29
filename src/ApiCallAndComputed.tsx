@@ -34,7 +34,12 @@ const ApiCallAndComputed = () => {
         <form>
           <label>
             Name:
-            <input type="text" value={value} onChange={handleChange} data-testid="country-input"/>
+            <input
+              type="text"
+              value={value}
+              onChange={handleChange}
+              data-testid="country-input"
+            />
           </label>
           <input
             disabled={!value}

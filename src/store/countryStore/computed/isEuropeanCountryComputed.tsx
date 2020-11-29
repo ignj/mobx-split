@@ -1,1 +1,1 @@
-export const isEuropeanCountryComputed = (countryData: any) => countryData !== null && countryData.region === 'Europe'
+export const isEuropeanCountryComputed = (countryData: any) => countryData && countryData.region === 'Europe'
