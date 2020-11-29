@@ -2,8 +2,15 @@ import React, { useContext } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "../App";
-import { renderHook } from "@testing-library/react-hooks";
-import { RootStoreContext } from "../store/RootStore";
+import { HookResult, renderHook } from "@testing-library/react-hooks";
+import { getRenewedRootStore, RootStore } from "../store/RootStore";
+
+let context: HookResult<RootStore> | null = null;
+
+beforeEach(() => {
+  const { result } = renderHook(() => useContext(getRenewedRootStore()));
+  context = result;
+});
 
 test("renders increment logs button", () => {
   render(<App />);
@@ -33,28 +40,26 @@ test("renders numbers of logs and data", () => {
 
 test("increment logs updates store", () => {
   render(<App />);
-  const { result: context } = renderHook(() => useContext(RootStoreContext));
   const incrementLogsButton = screen.getByTestId("increment-logs");
 
-  const initialCounter = context.current.logsStore.numberOfLogs;
+  const initialCounter = context!.current.logsStore.numberOfLogs;
   expect(initialCounter).toBe(0);
 
   fireEvent.click(incrementLogsButton);
 
-  const updatedCounter = context.current.logsStore.numberOfLogs;
+  const updatedCounter = context!.current.logsStore.numberOfLogs;
   expect(updatedCounter).toBe(1);
 });
 
 test("update logs updates store", () => {
   render(<App />);
-  const { result: context } = renderHook(() => useContext(RootStoreContext));
   const updateLogDataButton = screen.getByTestId("update-logs");
 
-  const initialData = context.current.logsStore.logData;
+  const initialData = context!.current.logsStore.logData;
   expect(initialData).toBe("");
 
   fireEvent.click(updateLogDataButton);
 
-  const updatedData = context.current.logsStore.logData;
+  const updatedData = context!.current.logsStore.logData;
   expect(updatedData).not.toEqual(initialData);
 });
