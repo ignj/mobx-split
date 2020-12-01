@@ -1,7 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useState } from "react";
 import { RootStoreContext } from "./store/RootStore";
-
 const ApiCallAndComputed = () => {
   const rootStore = useContext(RootStoreContext);
   const {
